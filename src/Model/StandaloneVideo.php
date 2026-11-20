@@ -18,7 +18,7 @@ class StandaloneVideo extends Video implements Scorable
 
     public function getUrl(): string
     {
-        return str_replace(' ', '-', strtolower($this->category));
+        return 'http://videos.example.com/' . new Slug($this->category) . '/' . new Slug($this->name);
     }
 
     public function getScore(): int
