@@ -4,12 +4,9 @@ namespace App\Solid\Model;
 
 class Video
 {
-    /** @var bool */
-    protected $watched = false;
-    /** @var string */
-    protected $name;
-    /** @var \DateInterval */
-    protected $duration;
+    protected bool $watched = false;
+    protected string $name;
+    protected \DateInterval $duration;
 
     public function __construct(string $name)
     {

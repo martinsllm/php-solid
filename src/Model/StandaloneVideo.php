@@ -4,7 +4,7 @@ namespace App\Solid\Model;
 
 class StandaloneVideo extends Video
 {
-    private $category;
+    private string $category;
 
     public function __construct(string $name, string $category)
     {

@@ -4,9 +4,9 @@ namespace App\Solid\Model;
 
 class Course
 {
-    private $name;
-    private $videos;
-    private $feedbacks;
+    private string $name;
+    private array $videos;
+    private array $feedbacks;
 
     public function __construct(string $name)
     {
@@ -15,13 +15,9 @@ class Course
         $this->feedbacks = [];
     }
 
-    public function receiveFeedback(int $rating, ?string $testimonial): void
+    public function receiveFeedback(Feedback $feedback): void
     {
-        if ($rating < 9 && empty($testimonial)) {
-            throw new \DomainException('Testimonial is required');
-        }
-
-        $this->feedbacks[] = [$rating, $testimonial];
+        $this->feedbacks[] = $feedback;
     }
 
     public function addVideo(Video $video)
