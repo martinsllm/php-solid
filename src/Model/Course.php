@@ -5,8 +5,9 @@ declare(strict_types=1);
 namespace App\Solid\Model;
 
 use App\Solid\Interfaces\Scorable;
+use App\Solid\Interfaces\Watchable;
 
-class Course implements Scorable
+class Course implements Scorable, Watchable
 {
     private string $name;
     private array $videos;
@@ -41,5 +42,12 @@ class Course implements Scorable
     public function getScore(): int
     {
         return 100;
+    }
+
+    public function watch(): void
+    {
+        foreach ($this->getVideos() as $video) {
+            $video->watch();
+        }
     }
 }

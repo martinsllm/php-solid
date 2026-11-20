@@ -4,20 +4,12 @@ declare(strict_types=1);
 
 namespace App\Solid\Service;
 
-use App\Solid\Model\StandaloneVideo;
-use App\Solid\Model\Course;
+use App\Solid\Interfaces\Watchable;
 
 class Watcher
 {
-    public function watchCourse(Course $course)
+    public function watch(Watchable $watchable): void
     {
-        foreach ($course->getVideos() as $video) {
-            $video->watch();
-        }
-    }
-
-    public function watchStandaloneVideo(StandaloneVideo $standaloneVideo)
-    {
-        $standaloneVideo->watch();
+        $watchable->watch();
     }
 }
