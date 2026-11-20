@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\Solid\Model;
 
-class StandaloneVideo extends Video
+use App\Solid\Interfaces\Scorable;
+
+class StandaloneVideo extends Video implements Scorable
 {
     private string $category;
 
@@ -17,5 +19,10 @@ class StandaloneVideo extends Video
     public function getUrl(): string
     {
         return str_replace(' ', '-', strtolower($this->category));
+    }
+
+    public function getScore(): int
+    {
+        return $this->durationInMinutes() * 2;
     }
 }

@@ -4,19 +4,12 @@ declare(strict_types=1);
 
 namespace App\Solid\Service;
 
-use App\Solid\Model\StandaloneVideo;
-use App\Solid\Model\Course;
+use App\Solid\Interfaces\Scorable;
 
 class ScoreCalculator
 {
-    public function getScore($content)
+    public function getScore(Scorable $content): int
     {
-        if ($content instanceof Course) {
-            return 100;
-        } else if ($content instanceof StandaloneVideo) {
-            return $content->durationInMinutes() * 2;
-        } else {
-            throw new \DomainException('Only courses and standalone videos have scores');
-        }
+        return $content->getScore();
     }
 }

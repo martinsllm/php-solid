@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\Solid\Model;
 
-class Course
+use App\Solid\Interfaces\Scorable;
+
+class Course implements Scorable
 {
     private string $name;
     private array $videos;
@@ -31,9 +33,13 @@ class Course
         $this->videos[] = $video;
     }
 
-    /** @return Video[] */
     public function getVideos(): array
     {
         return $this->videos;
+    }
+
+    public function getScore(): int
+    {
+        return 100;
     }
 }
