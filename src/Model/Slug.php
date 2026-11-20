@@ -11,7 +11,7 @@ class Slug
 
     public function __construct(private string $content)
     {
-        $this->slug = str_replace(' ', '-', strtolower($content));
+        $this->slug = preg_replace('/ +/', '-', strtolower($content));
     }
 
     public function __toString(): string
