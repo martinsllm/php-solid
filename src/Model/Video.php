@@ -10,11 +10,11 @@ class Video
     protected string $name;
     protected \DateInterval $duration;
 
-    public function __construct(string $name)
+    public function __construct(string $name, int $minutes = 0)
     {
         $this->name = $name;
         $this->watched = false;
-        $this->duration = \DateInterval::createFromDateString('0');
+        $this->duration = \DateInterval::createFromDateString($minutes . ' minutes');
     }
 
     public function watch(): void

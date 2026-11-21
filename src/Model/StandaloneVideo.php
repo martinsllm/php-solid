@@ -11,9 +11,9 @@ class StandaloneVideo extends Video implements Scorable, Watchable
 {
     private string $category;
 
-    public function __construct(string $name, string $category)
+    public function __construct(string $name, string $category, int $minutes = 0)
     {
-        parent::__construct($name);
+        parent::__construct($name, $minutes);
         $this->category = $category;
     }
 
