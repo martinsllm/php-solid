@@ -34,4 +34,16 @@ class CourseTest extends TestCase
         $this->assertCount(1, $course->getVideos());
         $this->assertEquals(100, $course->getScore());
     }
+
+    public function test_it_can_check_if_a_course_is_watched()
+    {
+        $course = new Course('Intro');
+        $video = new Video('Intro', 4);
+        
+        $course->addVideo($video);
+        $this->assertFalse($video->isWatched());
+        
+        $course->watch();
+        $this->assertTrue($video->isWatched());
+    }
 }

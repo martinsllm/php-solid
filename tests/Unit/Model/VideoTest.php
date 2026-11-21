@@ -23,4 +23,13 @@ class VideoTest extends TestCase
         $this->assertEquals('http://videos.example.com/name=Intro', $video->getUrl());
         $this->assertEquals(10, $video->durationInMinutes());
     }
+
+    public function test_it_can_check_if_a_video_is_watched()
+    {
+        $video = new Video('Intro');
+        $this->assertFalse($video->isWatched());
+        
+        $video->watch();
+        $this->assertTrue($video->isWatched());
+    }
 }

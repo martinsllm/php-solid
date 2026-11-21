@@ -33,4 +33,9 @@ class Video implements Watchable
     {
         return 'http://videos.example.com/' . http_build_query(['name' => $this->name]);
     }
+
+    public function isWatched(): bool
+    {
+        return $this->watched;
+    }
 }
