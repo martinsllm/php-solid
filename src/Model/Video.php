@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\Solid\Model;
 
-class Video
+use App\Solid\Interfaces\Watchable;
+
+class Video implements Watchable
 {
     protected bool $watched = false;
     protected string $name;

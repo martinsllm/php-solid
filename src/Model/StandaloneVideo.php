@@ -5,9 +5,8 @@ declare(strict_types=1);
 namespace App\Solid\Model;
 
 use App\Solid\Interfaces\Scorable;
-use App\Solid\Interfaces\Watchable;
 
-class StandaloneVideo extends Video implements Scorable, Watchable
+class StandaloneVideo extends Video implements Scorable
 {
     private string $category;
 
